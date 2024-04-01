@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SubSleeksService } from './sub-sleeks.service';
+import { SubSleeksService } from './subsleeks.service';
 
 describe('SubSleeksService', () => {
   let service: SubSleeksService;

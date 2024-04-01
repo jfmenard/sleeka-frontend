@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubSleeksListComponent } from './sublkeeks-list.component';
+import { SubSleeksListComponent } from './subsleeks-list.component';
 
-describe('SublkeeksListComponent', () => {
+describe('SubSleeksListComponent', () => {
   let component: SubSleeksListComponent;
   let fixture: ComponentFixture<SubSleeksListComponent>;
 

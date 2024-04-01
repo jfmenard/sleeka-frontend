@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { invoke } from "@tauri-apps/api/core";
 import { PostsListComponent } from './modules/home/posts-list/posts-list.component';
-import { SubSleeksListComponent } from './modules/home/sublkeeks-list/sublkeeks-list.component';
+import { SubSleeksListComponent } from './modules/home/subsleeks-list/subsleeks-list.component';
 
 @Component({
   selector: 'app-root',

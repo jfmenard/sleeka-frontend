@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Post } from '../shared/models/post.model';
 import { SubSleek } from '../shared/models/sub-sleek.model';
-import { SubSleeksService } from './sub-sleeks.service';
+import { SubSleeksService } from './subsleeks.service';
 
 @Injectable({
   providedIn: 'root'

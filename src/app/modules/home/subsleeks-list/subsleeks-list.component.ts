@@ -2,15 +2,15 @@ import { CommonModule } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { FormsModule } from '@angular/forms';
-import { SubSleeksService } from "../../../services/sub-sleeks.service";
+import { SubSleeksService } from "../../../services/subsleeks.service";
 import { SubSleek } from "../../../shared/models/sub-sleek.model";
 
 @Component({
-  selector: "app-sublkeeks-list",
+  selector: "app-subsleeks-list",
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: "./sublkeeks-list.component.html",
-  styleUrl: "./sublkeeks-list.component.css",
+  templateUrl: "./subsleeks-list.component.html",
+  styleUrl: "./subsleeks-list.component.css",
 })
 export class SubSleeksListComponent implements OnInit {
 
