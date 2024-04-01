@@ -1,13 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { invoke } from "@tauri-apps/api/core";
-import { SublkeeksListComponent } from '../sublkeeks-list/sublkeeks-list.component';
+import { PostsListComponent } from './modules/home/posts-list/posts-list.component';
+import { SubSleeksListComponent } from './modules/home/sublkeeks-list/sublkeeks-list.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, SublkeeksListComponent],
+  imports: [
+    CommonModule, 
+    RouterOutlet, 
+    FormsModule,
+    SubSleeksListComponent,
+    PostsListComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

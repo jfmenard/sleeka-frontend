@@ -1,0 +1,9 @@
+<div class="card w-96 bg-base-100 shadow-xl" *ngFor="let post of posts">
+    <div class="card-body">
+      <h2 class="card-title">{{post.title}}</h2>
+      <p>{{post.content}}</p>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary">Up</button>
+      </div>
+    </div>
+  </div>

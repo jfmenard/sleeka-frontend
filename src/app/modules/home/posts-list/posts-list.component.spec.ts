@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SublkeeksListComponent } from './sublkeeks-list.component';
+import { PostsListComponent } from './posts-list.component';
 
-describe('SublkeeksListComponent', () => {
-  let component: SublkeeksListComponent;
-  let fixture: ComponentFixture<SublkeeksListComponent>;
+describe('PostsListComponent', () => {
+  let component: PostsListComponent;
+  let fixture: ComponentFixture<PostsListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SublkeeksListComponent]
+      imports: [PostsListComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(SublkeeksListComponent);
+    fixture = TestBed.createComponent(PostsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
