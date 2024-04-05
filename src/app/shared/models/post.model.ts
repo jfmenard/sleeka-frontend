@@ -6,4 +6,10 @@ export class Post {
 
     content!: string;
 
+    comments_count!: number;
+
+    upvotes!: number;
+
+    downvotes!: number;
+
 }
