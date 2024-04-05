@@ -1,11 +1,29 @@
-<div class="card w-5/6 bg-neutral text-neutral-content m-5" *ngFor="let post of posts">
-  <div class="card-body">
-    <h2 class="card-title">{{post.title}}</h2>
-    <p>{{post.content}}</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">{{post.comments_count}} comments</button>
-      <button class="btn btn-primary">{{post.upvotes}} Up</button>
-      <button class="btn btn-primary">{{post.downvotes}} Down</button>
+<div class="grid grid-cols-1 gap-4">
+  <div
+    class="card bg-neutral text-neutral-content m-5"
+    *ngFor="let post of posts"
+  >
+    <div class="card-body">
+      <h2 class="card-title">{{ post.title }}</h2>
+      <p>{{ post.content }}</p>
+
+      <!-- Stats at the bottom right of the card -->
+      <div class="card-actions justify-end">
+        <div class="flex space-x-4">
+          <button class="flex items-center btn btn-neutral hover:btn-primary">
+            <i class="fas fa-comment mr-2"></i>
+            <span>{{ post.comments_count }}</span>
+          </button>
+          <button class="flex items-center btn btn-neutral hover:btn-primary">
+            <i class="fas fa-thumbs-up mr-2"></i>
+            <span>{{ post.upvotes }}</span>
+          </button>
+          <button class="flex items-center btn btn-neutral hover:btn-primary">
+            <i class="fas fa-thumbs-down mr-2"></i>
+            <span>{{ post.downvotes }}</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
