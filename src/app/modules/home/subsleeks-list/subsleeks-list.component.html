@@ -14,7 +14,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="hover" *ngFor="let subsleek of subsleeks" (click)="onSubsleekSelection(subsleek)">
+        <tr class="hover" *ngFor="let subsleek of subsleeks" (click)="onSubsleekSelection(subsleek)" [routerLink]="['/s/', subsleek.url_name]">
             <th>{{subsleek.name}}</th>
             <td>{{subsleek.description}}</td>
         </tr>

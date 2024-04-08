@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { invoke } from "@tauri-apps/api/core";
+import { PostComponent } from './modules/home/post/post.component';
 import { PostsListComponent } from './modules/home/posts-list/posts-list.component';
 import { SubSleeksListComponent } from './modules/home/subsleeks-list/subsleeks-list.component';
 
@@ -12,9 +13,11 @@ import { SubSleeksListComponent } from './modules/home/subsleeks-list/subsleeks-
   imports: [
     CommonModule, 
     RouterOutlet, 
+    RouterModule,
     FormsModule,
     SubSleeksListComponent,
-    PostsListComponent
+    PostsListComponent,
+    PostComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
