@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Post } from '../shared/models/post.model';
 import { SubSleek } from '../shared/models/sub-sleek.model';
 import { SubSleeksService } from './subsleeks.service';
@@ -11,6 +11,8 @@ import { SubSleeksService } from './subsleeks.service';
 export class PostsService {
 
   postsUrl = 'http://localhost:3000/subsleeks/';
+
+  postUrl = 'http://localhost:3000/posts/';
 
   private posts = new BehaviorSubject<Post[]>([]);
   posts$ = this.posts.asObservable();
@@ -28,6 +30,13 @@ export class PostsService {
     })
   }
 
-    
+  public getPosts(subsleekUrlName: string): Observable<Post[]> {
+    return this.http.get<Post[]>(this.postsUrl + subsleekUrlName);
+  }
+
+  public getPost(postId: number): Observable<Post> {
+    console.log('Posts service - Retrieving post '+ postId);
+    return this.http.get<Post>(this.postUrl + postId);
+  }
 
 }

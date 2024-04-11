@@ -1,5 +1,7 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, RouterLink, RouterModule } from "@angular/router";
+import { Component, Input } from "@angular/core";
+import { RouterLink, RouterModule } from "@angular/router";
+import { PostsService } from '../../../services/posts.service';
+import { Post } from "../../../shared/models/post.model";
 
 @Component({
   selector: "app-post",
@@ -8,14 +10,26 @@ import { ActivatedRoute, RouterLink, RouterModule } from "@angular/router";
   templateUrl: "./post.component.html",
   styleUrl: "./post.component.css",
 })
-export class PostComponent implements OnInit {
-  postId!: number;
+export class PostComponent {
 
-  constructor(private route: ActivatedRoute) {}
+  _postId!: number;
 
-  ngOnInit() {
-    this.route.paramMap.subscribe((params) => {
-      this.postId = Number(params.get("postId"));
+  post!: Post;
+
+  @Input()
+  get postId() { return this._postId; }
+
+  set postId(postId: number) {
+    console.log('Loading post id ' + postId);
+    this._postId = postId;
+    this.postsService.getPost(this._postId).subscribe(post => {
+      this.post = post;
+      console.log('Updated post id ' + postId);
     });
   }
+
+  constructor(private postsService: PostsService) {
+    console.log('In PostComponent init');
+  }
+
 }

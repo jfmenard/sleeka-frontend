@@ -4,6 +4,6 @@ import { PostsListComponent } from "./modules/home/posts-list/posts-list.compone
 
 export const routes: Routes = [
     { path: '', component: PostsListComponent },
-    { path: 's/:subsleekId', component: PostsListComponent },
-    { path: 'post/:postId', component: PostComponent },
+    { path: 's/:subsleekUrlName/p/:postId', component: PostComponent },
+    { path: 's/:subsleekUrlName', component: PostsListComponent },
 ];

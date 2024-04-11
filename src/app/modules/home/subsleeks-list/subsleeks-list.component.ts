@@ -2,7 +2,7 @@ import { CommonModule } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from "@angular/router";
+import { Router, RouterModule } from "@angular/router";
 import { SubSleeksService } from "../../../services/subsleeks.service";
 import { SubSleek } from "../../../shared/models/sub-sleek.model";
 
@@ -21,7 +21,10 @@ export class SubSleeksListComponent implements OnInit {
 
   isListVisible = false;
 
-  constructor(private http: HttpClient, private subSleeksService: SubSleeksService) {}
+  constructor(
+    private http: HttpClient, 
+    private router: Router,
+    private subSleeksService: SubSleeksService) {}
 
   ngOnInit(): void {
     this.http.get<SubSleek[]>(this.subsleeksUrl).subscribe(subsleeks => this.subsleeks = subsleeks);
@@ -30,7 +33,9 @@ export class SubSleeksListComponent implements OnInit {
   onSubsleekSelection(item: SubSleek) {
     console.log('Subsleek selected:', item);
     this.isListVisible = false;
-    this.subSleeksService.updateSubSleek(item);
+    //this.subSleeksService.updateSubSleek(item);
+    this.router.navigate(['/s/', item.url_name]);
+    //[routerLink]=""
   }
 
 }
