@@ -12,7 +12,7 @@ export class CommentsService {
 
   postUrl = 'http://localhost:3000/posts/{{postId}}/c';
 
-  commentsUrl = 'http://localhost:3000/comments/';
+  commentChildrenUrl = 'http://localhost:3000/comments/{{commentId}}/c';
 
   private posts = new BehaviorSubject<Post[]>([]);
   posts$ = this.posts.asObservable();
@@ -25,9 +25,8 @@ export class CommentsService {
     return this.http.get<CommentModel[]>(this.postUrl.replace("{{postId}}", String(postId)));
   }
 
-  public getPost(postId: number): Observable<Post> {
-    console.log('Posts service - Retrieving post '+ postId);
-    return this.http.get<Post>(this.postUrl + postId);
+  public getChildren(commentId: number): Observable<CommentModel[]> {
+    return this.http.get<CommentModel[]>(this.commentChildrenUrl.replace("{{commentId}}", String(commentId)));
   }
 
 }

@@ -18,7 +18,7 @@ export class PostComponent {
 
   _postId!: number;
 
-  post!: Post;
+  post?: Post;
 
   comments: CommentModel[] = [];
 
