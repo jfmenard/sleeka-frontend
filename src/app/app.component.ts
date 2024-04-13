@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { invoke } from "@tauri-apps/api/core";
+import { CommentComponent } from './modules/home/comment/comment.component';
 import { PostComponent } from './modules/home/post/post.component';
 import { PostsListComponent } from './modules/home/posts-list/posts-list.component';
 import { SubSleeksListComponent } from './modules/home/subsleeks-list/subsleeks-list.component';
@@ -17,7 +18,8 @@ import { SubSleeksListComponent } from './modules/home/subsleeks-list/subsleeks-
     FormsModule,
     SubSleeksListComponent,
     PostsListComponent,
-    PostComponent
+    PostComponent,
+    CommentComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
