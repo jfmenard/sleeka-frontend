@@ -1,13 +1,32 @@
-<div
-  class="collapse collapse-plus border border-base-300 bg-base-200"
->
+<div class="collapse collapse-plus border border-base-300 bg-base-200">
   <input type="checkbox" (change)="onDisplayChange($event)" />
   <div class="collapse-title text-xl font-medium">
+
     {{ comment.content }}
+
+    <!-- Stats at the bottom right of the card -->
+    <div class="card-actions justify-end">
+      <div class="flex space-x-4">
+        <button class="flex items-center btn btn-neutral hover:btn-primary">
+          <i class="fas fa-comment mr-2"></i>
+          <span>?</span>
+        </button>
+        <button class="flex items-center btn btn-neutral hover:btn-primary">
+          <i class="fas fa-thumbs-up mr-2"></i>
+          <span>{{ comment.upvotes }}</span>
+        </button>
+        <button class="flex items-center btn btn-neutral hover:btn-primary">
+          <i class="fas fa-thumbs-down mr-2"></i>
+          <span>{{ comment.downvotes }}</span>
+        </button>
+      </div>
+    </div>
   </div>
+
   <div class="collapse-content">
-    <div *ngFor="let childComment of childrenComments" >
+    <div *ngFor="let childComment of childrenComments">
       <app-comment [comment]="childComment"></app-comment>
     </div>
   </div>
+  
 </div>
