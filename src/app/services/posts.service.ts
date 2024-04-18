@@ -10,9 +10,13 @@ import { SubSleeksService } from './subsleeks.service';
 })
 export class PostsService {
 
-  postsUrl = 'http://localhost:3000/subsleeks/';
+  readonly postsUrl = 'http://localhost:3000/subsleeks/';
 
-  postUrl = 'http://localhost:3000/posts/';
+  readonly postUrl = 'http://localhost:3000/posts/';
+
+  readonly postUpvoteUrl = `${this.postUrl}{{postId}}/upvote`;
+
+  readonly postDownvoteUrl = `${this.postUrl}{{postId}}/downvote`;
 
   private posts = new BehaviorSubject<Post[]>([]);
   posts$ = this.posts.asObservable();
@@ -37,6 +41,16 @@ export class PostsService {
   public getPost(postId: number): Observable<Post> {
     console.log('Posts service - Retrieving post '+ postId);
     return this.http.get<Post>(this.postUrl + postId);
+  }
+
+  public upvote(postId: number): Observable<Post> {
+    console.log('Posts service - Upvoting post '+ postId);
+    return this.http.post<Post>(this.postUpvoteUrl.replace('{{postId}}', String(postId)), null);
+  }
+
+  public downvote(postId: number): Observable<Post> {
+    console.log('Posts service - Downvoting post '+ postId);
+    return this.http.post<Post>(this.postDownvoteUrl.replace('{{postId}}', String(postId)), null);
   }
 
 }

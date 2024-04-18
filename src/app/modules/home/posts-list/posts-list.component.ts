@@ -37,5 +37,21 @@ export class PostsListComponent implements OnInit {
     console.log('OnInit');
   }
 
+  upvote(post: Post, index: number, event: MouseEvent) {
+    this.postsService.upvote(post.id).subscribe(updatedPost => {
+      this.posts[index] = updatedPost;
+    });
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  downvote(post: Post, index: number, event: MouseEvent) {
+    this.postsService.downvote(post.id).subscribe(updatedPost => {
+      this.posts[index] = updatedPost;
+    });
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
 }
 
