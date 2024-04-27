@@ -44,14 +44,15 @@ export class NewPostComponent implements OnInit {
 
     let newPost = this.postForm.value;
 
-    let subSleekIndex = newPost.subsleeks[0];
-    console.log('Subsleek index:', subSleekIndex);
-
-    let subsleek_url = this.subsleeks[subSleekIndex - 1]?.url_name;
-    console.log('Subsleek url:', subsleek_url);
-
-    this.postsService.create(this.postForm.value).subscribe(createdPost => {
+    this.postsService.create(newPost).subscribe(createdPost => {
       console.debug(createdPost);
+
+      let subSleekIndex = newPost.subsleeks[0];
+      console.log('Subsleek index:', subSleekIndex);
+  
+      let subsleek_url = this.subsleeks[subSleekIndex - 1]?.url_name;
+      console.log('Subsleek url:', subsleek_url);
+        
       this.router.navigate(['/s/' + subsleek_url + '/p/' + createdPost.id]);
     });
   }
