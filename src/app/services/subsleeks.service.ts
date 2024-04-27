@@ -8,7 +8,7 @@ import { SubSleek } from '../shared/models/sub-sleek.model';
 })
 export class SubSleeksService {
 
-  subSleeksUrl = 'http://localhost:3000/subsleeks/';
+  subSleeksUrl = 'http://localhost:3000/subsleeks';
 
   private currentSubSleek = new ReplaySubject<SubSleek>();
   currentSubSleek$ = this.currentSubSleek.asObservable();
@@ -27,6 +27,10 @@ export class SubSleeksService {
 
   getCurrentSubSleek$(): Observable<SubSleek> {
     return this.currentSubSleek.asObservable();
+  }
+
+  getAllSubSleeks(): Observable<SubSleek[]> {
+    return this.http.get<SubSleek[]>(this.subSleeksUrl);    
   }
 
 }  

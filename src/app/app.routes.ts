@@ -7,5 +7,5 @@ export const routes: Routes = [
     { path: '', component: PostsListComponent },
     { path: 's/:subsleekUrlName/p/:postId', component: PostComponent },
     { path: 's/:subsleekUrlName', component: PostsListComponent },
-    { path: '/p/new', component: NewPostComponent },
+    { path: 'p/new', component: NewPostComponent },
 ];

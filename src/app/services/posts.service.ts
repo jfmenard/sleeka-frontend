@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Post } from '../shared/models/post.model';
+import { NewPost, Post } from '../shared/models/post.model';
 import { SubSleek } from '../shared/models/sub-sleek.model';
 import { SubSleeksService } from './subsleeks.service';
 
@@ -51,6 +51,11 @@ export class PostsService {
   public downvote(postId: number): Observable<Post> {
     console.log('Posts service - Downvoting post '+ postId);
     return this.http.post<Post>(this.postDownvoteUrl.replace('{{postId}}', String(postId)), null);
+  }
+
+  public create(post: NewPost): Observable<Post> {
+    console.log('Posts service - Creating post '+ post);
+    return this.http.post<Post>('http://localhost:3000/posts', post);
   }
 
 }

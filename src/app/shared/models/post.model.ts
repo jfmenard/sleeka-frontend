@@ -13,3 +13,13 @@ export class Post {
     downvotes!: number;
 
 }
+
+export class NewPost {
+
+    subsleeks!: [];
+
+    title!: string;
+
+    content!: string;
+
+}

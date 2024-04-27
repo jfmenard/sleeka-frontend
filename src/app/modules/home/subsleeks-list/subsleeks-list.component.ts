@@ -15,8 +15,6 @@ import { SubSleek } from "../../../shared/models/sub-sleek.model";
 })
 export class SubSleeksListComponent implements OnInit {
 
-  subsleeksUrl = 'http://localhost:3000/subsleeks';
-
   subsleeks: SubSleek[] = [];
 
   isListVisible = false;
@@ -27,7 +25,7 @@ export class SubSleeksListComponent implements OnInit {
     private subSleeksService: SubSleeksService) {}
 
   ngOnInit(): void {
-    this.http.get<SubSleek[]>(this.subsleeksUrl).subscribe(subsleeks => this.subsleeks = subsleeks);
+    this.subSleeksService.getAllSubSleeks().subscribe(subsleeks => this.subsleeks = subsleeks);
   }
 
   onSubsleekSelection(item: SubSleek) {
